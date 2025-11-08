@@ -18,12 +18,27 @@ v. **Discussion and Analysis**
   iii. Discuss limitations in capturing demographic nuances.
       Applying the methods to larger and more diverse real-life datasets would improve generalizability and allow testing whether the same parameter trends hold across populations.
 
+TaskB iii.) Discussion
+  i. Reflect on the importance of balanced datasets in healthcare.
+    Balanced datasets are essential in healthcare modeling because they ensure that predictive models learn patterns representative of all patient groups. When datasets are balanced, models can     generalize better across sexes, ages, or conditions, avoiding bias toward the majority group.  
+  ii. Discuss implications and challenges with real-world unbalanced datasets (by changing M and F ).
+    In real-world healthcare data, imbalance is common — for instance, when the number of male (`M`) and female (`F`) samples differs significantly. Such imbalance can lead to biased model predictions, lower accuracy for minority groups, and misleading clinical conclusions. This is especially critical when diagnostic or treatment decisions depend on model outputs.  
+  iii. Suggest and explore strategies to address these challenges in practice, based on the example provided in the class
+    Based on the class example, I add an option for sex bias loss from Lecture11 ppt page24 to the Regression binary classifier. By explicitly penalizing the accuracy difference between males and females in its objective, this loss function compels the model to find a more equitable decision threshold that improves performance for the minority group, rather than naively maximizing overall accuracy.
 
-**Comparative Model Performance**
+### Comparative Model Performance  
 
-The sigmoid model provided the best fit for SBP, showing smooth transitions and interpretable parameters.
-For DBP, the Gaussian model with a baseline component produced the most accurate description of the midlife peak and later decline.
-The polynomial model achieved moderate accuracy but exhibited instability and less biological interpretability at extreme ages.
+The comparison between models is shown below:  
+
+![Comparison of Fitted Models with Preprint Fig4](Comparison of Fitted Models with Preprint Fig4.png)  
+
+For the SBP models, both the polynomial and sigmoid fits achieved very high accuracy, with `MSE = 0.03862` and `R² = 0.99861` for the polynomial model, and `MSE = 0.03884` and `R² = 0.99860` for the sigmoid model. This indicates that both models describe the age–SBP relationship extremely well, though the sigmoid provides better physiological interpretability.  
+
+For the DBP models, the Gaussian fit significantly outperformed the polynomial model. The polynomial model had `MSE = 0.32148` and `R² = 0.95432`, whereas the Gaussian model achieved `MSE = 0.00829` and `R² = 0.99882`, effectively capturing the midlife peak and decline in DBP.  
+
+Overall, the sigmoidal–Gaussian combination best captures the nonlinear and physiologically meaningful trends of SBP and DBP across age groups.
+
+
 
 **Relevance to Model-Based Machine Learning**
 
