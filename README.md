@@ -65,7 +65,7 @@ ii. Identify and examine potential biases introduced by varying prevalences
 
     The logistic regression classifier, optimizing for overall accuracy, becomes biased towards the majority class in imbalanced datasets. This results in poor predictive power for the minority class, as evidenced by the low F1-scores. Such a model would be unfair and unreliable in a real-world setting.
 
-![Performance (Without bias-penalized)](./Performance%20(Without%20 bias-penalized).png) 
+![Performance (Without bias-penalized)](./Performance%20(Without%20bias-penalized).png) 
 
 iv. Bias Mitigation in Training: Modify your training strategy (e.g., loss function) to systematically reduce sex bias. Explain the reasoning behind the chosen method.
 
