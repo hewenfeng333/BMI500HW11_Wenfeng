@@ -5,6 +5,8 @@ wenfeng.he@emory.edu
 
 I choose to answer HW3: Model-based Bias Removal in Machine Learning using Synthetic Blood Pressure Data
 
+Code can be found in [He_BMI500_HW11.ipynb](./He_BMI500_HW11.ipynb)  
+
 **Key Insights**
 
 TaskA iv. **Interpret Model Parameters**
@@ -80,7 +82,7 @@ iv. Bias Mitigation in Training: Modify your training strategy (e.g., loss funct
 
     In future applications to real-life datasets, data should be cleaned and normalized, key covariates included, and models validated through cross-validation. 
 
-Disclaimer: ChatGPT was used for primary analysis HW11.Q3, Conversation is available at (./ChatGPT4Q3.pdf)  
+Disclaimer: ChatGPT was used for primary analysis HW11.Q3, Conversation is available at [ChatGPT4Q3](./ChatGPT4Q3.pdf)  
 
 ### References
 
