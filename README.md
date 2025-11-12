@@ -41,9 +41,9 @@ TaskB iii.) Discussion
 
 ### Comparative Model Performance  
 
-The comparison between models is shown below:  
+TaskA. The comparison between models is shown below:  
 
-![Comparison of Fitted Models with Preprint Fig4](Comparison of Fitted Models with Preprint Fig4.png)  
+![Comparison of Fitted Models with Preprint Fig4](./Comparison of Fitted Models with Preprint Fig4.png)  
 
 For the SBP models, both the polynomial and sigmoid fits achieved very high accuracy, with `MSE = 0.03862` and `R² = 0.99861` for the polynomial model, and `MSE = 0.03884` and `R² = 0.99860` for the sigmoid model. This indicates that both models describe the age–SBP relationship extremely well, though the sigmoid provides better physiological interpretability.  
 
@@ -51,7 +51,23 @@ For the DBP models, the Gaussian fit significantly outperformed the polynomial m
 
 Overall, the sigmoidal–Gaussian combination best captures the nonlinear and physiologically meaningful trends of SBP and DBP across age groups.
 
+TaskB. Analysis:
+i. Discuss classifier performance changes with different male/female data ratios.
 
+As shown in the ROC Performance plot, accuracy is deceptively high at extreme data imbalances (e.g., 10% or 90% males) because the model simply predicts the majority class. The F1-score, a better metric, reveals poor performance in these cases and peaks only when data is balanced (50% ratio). 
+
+![ROC Curves for Classifier](./ROC Curves for Classifier.png)  
+
+ii. Identify and examine potential biases introduced by varying prevalences
+
+The logistic regression classifier, optimizing for overall accuracy, becomes biased towards the majority class in imbalanced datasets. This results in poor predictive power for the minority class, as evidenced by the low F1-scores. Such a model would be unfair and unreliable in a real-world setting.
+
+![Performance (Without bias-penalized)](./Performance (Without bias-penalized).png)  
+
+iv. Bias Mitigation in Training: Modify your training strategy (e.g., loss function) to systematically reduce sex bias. Explain the reasoning behind the chosen method.
+
+Bias Mitigation Strategy The mitigation strategy employed is a post-processing technique that systematically reduces sex bias by optimizing the decision threshold. the method minimizes sex bias loss (from Lecture11 ppt page24). This function penalizes the model for performance disparities between sexes, forcing it to find a threshold that balances overall accuracy with fairness. The without mitigation strategy uses a fixed threshold, which is blind to fairness and performs poorly on the minority group. The with mitigation strategy uses an adaptive threshold that is sensitive to fairness. This successfully corrects for the bias introduced by data imbalance, leading to a more equitable and reliable classifier, as confirmed by the stable F1-scores across all tested data ratios.
+![Performance (With bias-penalized)](./Performance (With bias-penalized).png)  
 
 **Relevance to Model-Based Machine Learning**
 
