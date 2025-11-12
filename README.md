@@ -80,7 +80,7 @@ iv. Bias Mitigation in Training: Modify your training strategy (e.g., loss funct
 
     In future applications to real-life datasets, data should be cleaned and normalized, key covariates included, and models validated through cross-validation. 
 
-Disclaimer: ChatGPT was used for primary analysis HW11.Q3, Conversation is available at (./ChatGPT4Q3.pdf) 
+Disclaimer: ChatGPT was used for primary analysis HW11.Q3, Conversation is available at (./ChatGPT4Q3.pdf)  
 
 ### References
 
